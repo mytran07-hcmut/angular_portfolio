@@ -24,7 +24,7 @@
 /* Tên */
 .main-title {
   margin-top: 4rem;
-  font-size: 5rem;
+  font-size: 10rem;
   position: relative;
   z-index: 1;
   font-weight: 900;
@@ -32,13 +32,13 @@
 
 /* Avatar */
 .avatar-section {
-  margin-top: -9rem;
+  margin-top: -7rem;
   position: relative;
   z-index: 2;
 }
 
 .avatar-img {
-  width: 300px;
+  max-width: 800px;
 }
 
 
@@ -46,10 +46,10 @@
 /* Search bar & navigation section */
 .menu-container {
   width: 100%;
-  margin-top:-80px;
-  max-width: 500px;
+  margin-top:-40px;
+  max-width: 800px;
   background-color: var(--bg-color);
-  
+  align-items: center;
   position: relative;
   z-index: 3;
   display: flex;
@@ -85,7 +85,7 @@
   width: 85%; /* Thu nhỏ bề ngang lại (85%) so với search bar */
   margin: 0;
   padding: 0;
-  border-radius: 16px; /* Bo góc mềm mại nhưng không tròn xoe như search */
+  border-radius: 16px; 
   box-shadow: 0 12px 28px var(--shadow-color); /* ĐỔ BÓNG ĐẬM HƠN để tạo chiều sâu tối đa */
   list-style: none;
   overflow: hidden; /* Giữ cho hiệu ứng hover không bị tràn ra ngoài góc bo */
