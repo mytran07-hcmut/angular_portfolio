@@ -1,0 +1,25 @@
+.content-box {
+  padding: 2.5rem;
+  margin-bottom: 3rem; /* Khoảng cách giữa các box */
+  width: 100%;
+  max-width: 800px; /* Giới hạn độ rộng để chữ không bị tràn dài khó đọc */
+  margin-left: auto;
+  margin-right: auto; /* Giúp box luôn nằm giữa màn hình */
+}
+
+.box-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  /* Tạo đường kẻ mỏng dưới tiêu đề cho gọn gàng */
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.box-body {
+  font-size: 1.1rem;
+  line-height: 1.8; /* Dãn dòng rộng ra để dễ đọc hơn */
+  color: var(--text-color);
+}

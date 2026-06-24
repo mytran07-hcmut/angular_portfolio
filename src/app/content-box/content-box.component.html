@@ -1,0 +1,10 @@
+<!-- Truyền content vào từng box sử dụng <ng-content> -->
+<div class="content-box card-box" [id]="title.toLowerCase().replace(' ', '-')">
+  
+  <h2 class="box-title">{{ title }}</h2>
+  
+  <div class="box-body">
+    <ng-content></ng-content>
+  </div>
+  
+</div>

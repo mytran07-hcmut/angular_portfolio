@@ -1,0 +1,42 @@
+/* Khung chứa footer */
+.footer-container {
+  display: flex;
+  justify-content: space-between; /* Đẩy chữ sang trái, icon sang phải */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  padding: 4rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 4rem; /* Tạo khoảng cách với các content box phía trên */
+  border-top: 1px solid var(--border-color); /* Một đường kẻ mỏng ngăn cách nội dung */
+}
+
+/* Khu vực chứa chữ */
+.footer-text {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Khoảng cách giữa chữ ALWAYS và khối xếp chồng */
+}
+
+/* Chữ ALWAYS */
+.always-text {
+  font-size: 3.5rem;
+  font-weight: 600; 
+  letter-spacing: 0.05em;
+  color: var(--text-color);
+}
+
+/* Cụm 3 chữ xếp chồng */
+.stacked-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.15em;
+  color: var(--text-color);
+}
+
+/* Biểu tượng bên phải */
+.footer-graphic {
+  color: var(--text-color);
+}

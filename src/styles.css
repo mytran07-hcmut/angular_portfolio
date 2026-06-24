@@ -1,0 +1,46 @@
+/* Light Theme */
+:root {
+  --bg-color: #FFFFFF;
+  --text-color: #9D8189; 
+  --box-bg: #FFCAD4; 
+  --box-hover: #F4ACB7; 
+  --border-color: #D8E2DC; 
+  --shadow-color: rgba(157, 129, 137, 0.2); 
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --bg-color: #0B2545; 
+  --text-color: #EEF4ED; 
+  --box-bg: #13315C; 
+  --box-hover: #134074; 
+  --border-color: #8DA9C4; 
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Reset CSS cơ bản */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Lớp tiện ích cho các box dùng chung */
+.card-box {
+  background-color: var(--box-bg);
+  border-radius: 8px;
+  box-shadow: 4px 4px 0px var(--shadow-color);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card-box:hover {
+  transform: scale(1.02);
+  background-color: var(--box-hover);
+}

@@ -1,0 +1,30 @@
+<div class="hero-container">
+  <div class="top-controls">
+    <!-- Icon đổi theme và đổi language -->
+    <i class="fa-solid" 
+       [class.fa-sun]="!isDarkMode" 
+       [class.fa-moon]="isDarkMode" 
+       (click)="toggleTheme()">
+    </i><span>VI/EN</span> 
+  </div>
+
+  <!-- Section tiêu đề chính -->
+  <h1 class="main-title">TRAN HAI MY</h1>
+  <!-- Section hình đại diện -->
+  <div class="avatar-section">
+    <img src="assets/anh.png" alt="Avatar" class="avatar-img">
+  </div>
+
+  <!-- Section search bar và menu -->
+  <div class="menu-container">
+    <div class="search-bar">
+      <input type="text" placeholder="Nhập vào đây để hỏi ?">
+      <i class="fa-solid fa-play"></i> </div>
+    
+    <ul class="nav-links">
+      <li (click)="scrollToSection('about-me')">About me <i class="fa-solid fa-arrow-down"></i></li>
+      <li (click)="scrollToSection('experience')">Experience <i class="fa-solid fa-arrow-down"></i></li>
+      <li (click)="scrollToSection('skills')">Skills <i class="fa-solid fa-arrow-down"></i></li>
+    </ul>
+  </div>
+</div>
