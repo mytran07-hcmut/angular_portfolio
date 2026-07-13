@@ -21,13 +21,34 @@
   font-size: 1.2rem;
 }
 
-/* Tên */
+/* ===========================
+   Animated Gradient Name
+   =========================== */
 .main-title {
   margin-top: 4rem;
   font-size: 10rem;
   position: relative;
   z-index: 1;
   font-weight: 900;
+  /* Animated gradient text */
+  background: linear-gradient(
+    120deg,
+    var(--text-color) 0%,
+    #9d8189 30%,
+    var(--text-color) 50%,
+    #b5838d 75%,
+    var(--text-color) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
 /* Avatar */
@@ -41,12 +62,69 @@
   max-width: 800px;
 }
 
+/* ===========================
+   Role / Typing Badge
+   =========================== */
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: -8px;
+  margin-bottom: 16px;
+  padding: 8px 24px;
+  border-radius: 999px;
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(157, 129, 137, 0.3);
+  box-shadow:
+    0 4px 16px rgba(157, 129, 137, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  position: relative;
+  z-index: 3;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  letter-spacing: 0.03em;
+}
 
+[data-theme="dark"] .role-badge {
+  background: rgba(19, 49, 92, 0.45);
+  border-color: rgba(141, 169, 196, 0.3);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.role-prefix {
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+.role-text {
+  min-width: 200px; /* Ngăn layout nhảy khi text thay đổi độ dài */
+  text-align: left;
+}
+
+/* Con trỏ nhấp nháy */
+.typing-cursor {
+  font-weight: 300;
+  font-size: 1.1rem;
+  animation: blink 0.8s step-end infinite;
+  color: #9d8189;
+  line-height: 1;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
 
 /* Search bar & navigation section */
 .menu-container {
   width: 100%;
-  margin-top:-40px;
+  margin-top: 0;
   max-width: 800px;
   background-color: var(--bg-color);
   align-items: center;
@@ -54,20 +132,39 @@
   z-index: 3;
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Tạo khoảng cách hở giữa search bar và menu */
+  gap: 15px;
 }
-
 
 .search-bar {
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: var(--bg-color); /* Nền trắng/xanh tùy theme */
-  border: 1px solid var(--border-color);
-  border-radius: 30px; /* Bo góc cong hoàn toàn (pill shape) */
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(157, 129, 137, 0.25);
+  border-radius: 30px;
   padding: 18px 30px;
-  box-shadow: 0 4px 12px var(--shadow-color); /* Đổ bóng nhẹ nhàng */
-  transition: box-shadow 0.3s ease;
+  box-shadow:
+    0 4px 20px rgba(157, 129, 137, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+[data-theme="dark"] .search-bar {
+  background: rgba(19, 49, 92, 0.5);
+  border-color: rgba(141, 169, 196, 0.25);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.search-bar:focus-within {
+  box-shadow:
+    0 6px 28px rgba(157, 129, 137, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  border-color: rgba(157, 129, 137, 0.5);
 }
 
 .search-bar input {
@@ -77,30 +174,51 @@
   font-family: 'Montserrat', sans-serif;
   color: var(--text-color);
   font-size: 1rem;
-  outline: none; 
+  outline: none;
 }
 
-/* Menu */
+/* ===========================
+   Glassmorphism Nav Cards
+   =========================== */
 .nav-links {
-  width: 85%; /* Thu nhỏ bề ngang lại (85%) so với search bar */
+  width: 85%;
   margin: 0;
   padding: 0;
-  border-radius: 16px; 
-  box-shadow: 0 12px 28px var(--shadow-color); /* ĐỔ BÓNG ĐẬM HƠN để tạo chiều sâu tối đa */
+  border-radius: 16px;
   list-style: none;
-  overflow: hidden; /* Giữ cho hiệu ứng hover không bị tràn ra ngoài góc bo */
-  border: 1px solid var(--border-color);
+  overflow: hidden;
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(157, 129, 137, 0.2);
+  box-shadow:
+    0 8px 32px rgba(157, 129, 137, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+
+[data-theme="dark"] .nav-links {
+  background: rgba(19, 49, 92, 0.5);
+  border-color: rgba(141, 169, 196, 0.2);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .nav-links li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 16px;
-  border-bottom: 1px solid var(--border-color);
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(157, 129, 137, 0.15);
   cursor: pointer;
   font-weight: 500;
-  transition: background-color 0.2s ease, padding-left 0.2s ease;
+  color: var(--text-color);
+  /* Smooth hover transition */
+  transition:
+    background-color 0.25s ease,
+    padding-left 0.25s ease,
+    letter-spacing 0.25s ease;
 }
 
 .nav-links li:last-child {
@@ -108,6 +226,23 @@
 }
 
 .nav-links li:hover {
-  background-color: var(--shadow-color); 
-  padding-left: 24px; 
+  background-color: rgba(157, 129, 137, 0.12);
+  padding-left: 28px;
+  letter-spacing: 0.02em;
+}
+
+[data-theme="dark"] .nav-links li:hover {
+  background-color: rgba(141, 169, 196, 0.1);
+}
+
+/* Arrow icon animation on hover */
+.nav-links li i {
+  transition: transform 0.25s ease;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.nav-links li:hover i {
+  transform: translateY(3px);
+  opacity: 1;
 }

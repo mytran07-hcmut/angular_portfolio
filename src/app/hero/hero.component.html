@@ -2,12 +2,13 @@
   <div class="top-controls">
     <!-- Icon đổi theme và đổi language -->
     <i class="fa-solid" 
-       [class.fa-sun]="!isDarkMode" 
-       [class.fa-moon]="isDarkMode" 
+       [class.fa-sun]="!isDarkMode()" 
+       [class.fa-moon]="isDarkMode()" 
        (click)="toggleTheme()">
     </i><span>VI/EN</span> 
   </div>
-<!-- Section tiêu đề chính -->
+
+  <!-- Section tiêu đề chính với animated gradient -->
   <h1 class="main-title">TRAN HAI MY</h1>
 
   <!-- Section hình đại diện -->
@@ -15,18 +16,33 @@
     <img src="assets/anh.png" alt="Avatar" class="avatar-img">
   </div>
 
-  
+  <!-- Typing animation: chức danh -->
+  <div class="role-badge">
+    <span class="role-prefix">✦</span>
+    <span class="role-text">{{ displayText() }}</span>
+    <span class="typing-cursor">|</span>
+  </div>
 
   <!-- Section search bar và menu -->
   <div class="menu-container">
     <div class="search-bar">
       <input type="text" placeholder="Nhập vào đây để hỏi ?">
-      <i class="fa-solid fa-play"></i> </div>
+      <i class="fa-solid fa-play"></i>
+    </div>
     
     <ul class="nav-links">
-      <li (click)="scrollToSection('about-me')">About me <i class="fa-solid fa-arrow-down"></i></li>
-      <li (click)="scrollToSection('experience')">Experience <i class="fa-solid fa-arrow-down"></i></li>
-      <li (click)="scrollToSection('skills')">Skills <i class="fa-solid fa-arrow-down"></i></li>
+      <li (click)="scrollToSection('about-me')">
+        <span>About me</span>
+        <i class="fa-solid fa-arrow-down"></i>
+      </li>
+      <li (click)="scrollToSection('experience')">
+        <span>Experience</span>
+        <i class="fa-solid fa-arrow-down"></i>
+      </li>
+      <li (click)="scrollToSection('skills')">
+        <span>Skills</span>
+        <i class="fa-solid fa-arrow-down"></i>
+      </li>
     </ul>
   </div>
 </div>
