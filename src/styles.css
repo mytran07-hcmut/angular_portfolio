@@ -6,6 +6,7 @@
   --box-hover: #F4ACB7; 
   --border-color: #D8E2DC; 
   --shadow-color: rgba(157, 129, 137, 0.2); 
+  --grid-color: rgba(99, 84, 89, 0.03); /* Lưới mờ hơn */
 }
 
 /* Dark Theme */
@@ -16,6 +17,7 @@
   --box-hover: #134074; 
   --border-color: #8DA9C4; 
   --shadow-color: rgba(0, 0, 0, 0.4);
+  --grid-color: rgba(238, 244, 237, 0.03); /* Lưới mờ hơn */
 }
 
 /* Reset CSS cơ bản */
@@ -27,9 +29,52 @@
 
 body {
   background-color: var(--bg-color);
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: top left;
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
   font-family: 'Montserrat', sans-serif;
+  position: relative; /* Cho pseudo-element */
+}
+
+/* Hiệu ứng sóng quét lưới (Tech wave) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  /* Lưới đậm hơn để tạo hiệu ứng sáng lên */
+  background-image: 
+    linear-gradient(var(--text-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--text-color) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: top left;
+  opacity: 0.05; /* Độ sáng của sóng (đã giảm bớt để mờ mờ) */
+  
+  /* Mask quét qua lại */
+  -webkit-mask-image: linear-gradient(to left, transparent 30%, black 50%, transparent 70%);
+  mask-image: linear-gradient(to left, transparent 30%, black 50%, transparent 70%);
+  -webkit-mask-size: 300% 100%;
+  mask-size: 300% 100%;
+  animation: techWave 5s linear infinite;
+}
+
+@keyframes techWave {
+  0% {
+    -webkit-mask-position: 150% 0;
+    mask-position: 150% 0;
+  }
+  100% {
+    -webkit-mask-position: -50% 0;
+    mask-position: -50% 0;
+  }
 }
 
 /* Lớp tiện ích cho các box dùng chung */
@@ -43,4 +88,36 @@ body {
 .card-box:hover {
   transform: scale(1.02);
   background-color: var(--box-hover);
+}
+
+.content-box {
+  background-color: var(--box-bg);
+  color: var(--text-color);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.content-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.15);
+}
+
+/* 
+ * =====================================
+ * SCROLL REVEAL (FADE-IN & SCROLL-UP)
+ * =====================================
+ */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  /* Chuyển động mượt mà khi bắt đầu hiện lên */
+  transition: opacity 0.8s cubic-bezier(0.5, 0, 0, 1), transform 0.8s cubic-bezier(0.5, 0, 0, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

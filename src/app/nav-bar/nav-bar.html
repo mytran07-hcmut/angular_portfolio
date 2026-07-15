@@ -1,0 +1,17 @@
+<nav class="navbar" [class.scrolled]="isScrolled()">
+  <div class="nav-center">
+    <ul class="nav-links">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active">About Me</a></li>
+      <li><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <i class="fa-solid" 
+       [class.fa-sun]="!isDarkMode()" 
+       [class.fa-moon]="isDarkMode()" 
+       (click)="toggleTheme()">
+    </i><span>VI/EN</span>
+  </div>
+</nav>

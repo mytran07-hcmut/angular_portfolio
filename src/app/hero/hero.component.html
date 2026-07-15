@@ -1,12 +1,5 @@
 <div class="hero-container">
-  <div class="top-controls">
-    <!-- Icon đổi theme và đổi language -->
-    <i class="fa-solid" 
-       [class.fa-sun]="!isDarkMode()" 
-       [class.fa-moon]="isDarkMode()" 
-       (click)="toggleTheme()">
-    </i><span>VI/EN</span> 
-  </div>
+
 
   <!-- Section tiêu đề chính với animated gradient -->
   <h1 class="main-title">TRAN HAI MY</h1>
@@ -16,17 +9,35 @@
     <img src="assets/anh.png" alt="Avatar" class="avatar-img">
   </div>
 
-  <!-- Typing animation: chức danh -->
-  <div class="role-badge">
-    <span class="role-prefix">✦</span>
-    <span class="role-text">{{ displayText() }}</span>
-    <span class="typing-cursor">|</span>
+  <!-- Floating Keywords Background -->
+  <div class="floating-bg" [class.is-dragging-any]="isDraggingAny">
+    @for (kw of keywords; track kw.text) {
+      @if (kw.isActiveAnimation) {
+        <div class="floating-keyword-container"
+             [class.dragging]="kw.isDragging"
+             [class.fading-out]="kw.isFadingOut"
+             [style.left]="kw.left"
+             [style.right]="kw.right"
+             [style.top]="kw.top"
+             [style.animation-delay]="kw.delay"
+             [style.animation-duration]="kw.duration"
+             [style.--scale]="kw.scale">
+           
+           <div class="keyword-drag-wrapper"
+                [style.transform]="'translate(' + kw.transformX + 'px, ' + kw.transformY + 'px)'"
+                (mousedown)="onGrab($event, kw)"
+                (touchstart)="onGrab($event, kw)">
+             {{ kw.text }}
+           </div>
+        </div>
+      }
+    }
   </div>
 
   <!-- Section search bar và menu -->
   <div class="menu-container">
     <div class="search-bar">
-      <input type="text" placeholder="Nhập vào đây để hỏi ?">
+      <input type="text" [placeholder]="placeholderText()">
       <i class="fa-solid fa-play"></i>
     </div>
     
