@@ -8,37 +8,24 @@
   z-index: 0;
 }
 
-/* Các icon ở góc phải */
-.top-controls {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 1.2rem;
-}
 
 /* ===========================
    Animated Gradient Name
    =========================== */
 .main-title {
-  margin-top: 4rem;
+  margin-top: 1rem;
   font-size: 10rem;
   position: relative;
   z-index: 1;
   font-weight: 900;
+  white-space: nowrap;
   /* Animated gradient text */
-  background: linear-gradient(
-    120deg,
-    var(--text-color) 0%,
-    #9d8189 30%,
-    var(--text-color) 50%,
-    #b5838d 75%,
-    var(--text-color) 100%
-  );
+  background: linear-gradient(120deg,
+      var(--text-color) 0%,
+      #9d8189 30%,
+      var(--text-color) 50%,
+      #b5838d 75%,
+      var(--text-color) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -47,8 +34,13 @@
 }
 
 @keyframes shimmer {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
 }
 
 /* Avatar */
@@ -62,63 +54,109 @@
   max-width: 800px;
 }
 
-/* ===========================
-   Role / Typing Badge
-   =========================== */
-.role-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: -8px;
-  margin-bottom: 16px;
-  padding: 8px 24px;
-  border-radius: 999px;
-  /* Glassmorphism */
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(157, 129, 137, 0.3);
-  box-shadow:
-    0 4px 16px rgba(157, 129, 137, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
-  position: relative;
-  z-index: 3;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-color);
-  letter-spacing: 0.03em;
+/* Floating Keywords Background */
+.floating-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  /* Trên grid nền, dưới ảnh đại diện/text chính */
+  overflow: hidden;
 }
 
-[data-theme="dark"] .role-badge {
-  background: rgba(19, 49, 92, 0.45);
-  border-color: rgba(141, 169, 196, 0.3);
-  box-shadow:
-    0 4px 16px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+.floating-keyword-container {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  /* so container itself doesn't block */
+  animation: floatRandom ease-in-out infinite, shimmer 4s linear infinite;
+  transition: opacity 0.5s ease;
 }
 
-.role-prefix {
-  font-size: 0.85rem;
-  opacity: 0.6;
+.keyword-drag-wrapper {
+  pointer-events: auto;
+  /* make text clickable */
+  cursor: grab;
+  font-weight: 800;
+  white-space: nowrap;
+  font-size: 1.5rem;
+  background: linear-gradient(120deg, var(--text-color) 0%, #9d8189 50%, var(--text-color) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding: 10px;
+  /* larger grab area */
+  user-select: none;
+  /* prevent text selection on drag */
+  -webkit-user-select: none;
 }
 
-.role-text {
-  min-width: 200px; /* Ngăn layout nhảy khi text thay đổi độ dài */
-  text-align: left;
+.keyword-drag-wrapper:active {
+  cursor: grabbing;
 }
 
-/* Con trỏ nhấp nháy */
-.typing-cursor {
-  font-weight: 300;
-  font-size: 1.1rem;
-  animation: blink 0.8s step-end infinite;
-  color: #9d8189;
-  line-height: 1;
+/* Khi có keyword nào đó đang bị drag, làm mờ và dừng các keyword khác */
+.floating-bg.is-dragging-any .floating-keyword-container:not(.dragging) {
+  opacity: 0 !important;
+  animation-play-state: paused !important;
+  transition: opacity 0.3s ease;
 }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+/* Style cho keyword đang được drag */
+.floating-keyword-container.dragging {
+  animation-play-state: paused !important;
+  opacity: 1 !important;
+  /* Force visible */
+  z-index: 10;
+}
+
+.floating-keyword-container.dragging .keyword-drag-wrapper {
+  filter: drop-shadow(0px 8px 16px rgba(157, 129, 137, 0.4));
+}
+
+/* Style khi nhả chuột ra và mờ dần */
+.floating-keyword-container.fading-out {
+  opacity: 1 !important; /* Keep container visible to prevent snap-hide */
+  animation-play-state: paused !important;
+}
+
+.floating-keyword-container.fading-out .keyword-drag-wrapper {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+@keyframes floatRandom {
+  0% {
+    transform: translateY(20px) scale(var(--scale, 1));
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 0.8;
+  }
+
+  15% {
+    transform: translateY(-20px) scale(calc(var(--scale, 1) * 1.15));
+    opacity: 1;
+  }
+
+  25% {
+    opacity: 0.8;
+  }
+
+  30% {
+    transform: translateY(-50px) scale(var(--scale, 1));
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(-50px) scale(var(--scale, 1));
+    opacity: 0;
+  }
 }
 
 /* Search bar & navigation section */
@@ -126,7 +164,6 @@
   width: 100%;
   margin-top: 0;
   max-width: 800px;
-  background-color: var(--bg-color);
   align-items: center;
   position: relative;
   z-index: 3;
