@@ -2,7 +2,8 @@
 
 <div class="main-content">
   <div class="about-container">
-    <app-content-box title="About me" id="about-me" class="about-text-card" appScrollReveal>
+    <app-content-box title="About me" id="about-me" class="about-text-card" appScrollReveal [routerLink]="['/about']"
+      style="cursor: pointer;">
       <p>
         Hi, I'm <strong>Hai My</strong>, an Artificial Intelligence student in the collaborative program between the
         <strong>University of Technology Sydney (UTS)</strong> and
@@ -37,66 +38,120 @@
       <img src="assets/logo_uts.png" alt="UTS Logo">
     </div>
   </div>
-  <app-content-box title="Projects" id="projects" appScrollReveal>
-    <div class="projects-grid">
-      <!-- Dự án 1 -->
-      <div class="project-item">
-        <div class="project-logo-wrapper">
-          <img src="assets/projects/ocg/logo.jpg" alt="Ô Con Giáp Logo">
+  <app-content-box title="Projects" id="projects" appScrollReveal [routerLink]="['/projects']" style="cursor: pointer;">
+    <div class="project-showcase">
+      <!-- Dự án 1: Ô Con Giáp -->
+      <div class="project-card-alt" (click)="$event.stopPropagation()" [routerLink]="['/projects']" fragment="ocg"
+        style="cursor: pointer;">
+        <div class="project-overlay">
+          <span>Explore Project</span>
         </div>
-        <h3 class="project-title">Ô Con Giáp</h3>
-        <p class="project-desc">A Modern Board Game</p>
+        <div class="project-mockup">
+          <img src="assets/projects/ocg/product.jpg" alt="Ô Con Giáp Banner">
+        </div>
+        <div class="project-info">
+          <h3 class="project-title-alt">Ô Con Giáp</h3>
+          <p class="project-desc-alt">A Modern Board Game that revitalizes the traditional Vietnamese "Ô Ăn Quan" with
+            new mechanics and beautiful artwork, creating an engaging experience for modern players.</p>
+          <div class="tech-tags">
+            <span class="tag">Game Design</span>
+            <span class="tag">Board Game</span>
+            <span class="tag">Traditional</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Dự án 2 -->
-      <div class="project-item">
-        <div class="project-logo-wrapper">
-          <img src="assets/projects/civictech/logo.jpg" alt="CivicTech Logo">
+      <!-- Dự án 2: CivicTech -->
+      <div class="project-card-alt" (click)="$event.stopPropagation()" [routerLink]="['/projects']" fragment="civictech"
+        style="cursor: pointer;">
+        <div class="project-overlay">
+          <span>Explore Project</span>
         </div>
-        <h3 class="project-title">CivicTech</h3>
-        <p class="project-desc">Community Support Platform</p>
+        <div class="project-mockup">
+          <img src="assets/projects/civictech/banner.jpg" alt="CivicTech Banner">
+        </div>
+        <div class="project-info">
+          <h3 class="project-title-alt">CivicTech</h3>
+          <p class="project-desc-alt">A community support platform allowing citizens to report local issues. It
+            successfully garnered 200 followers and resolved over 60 reports within the first two weeks of launch.</p>
+          <div class="tech-tags">
+            <span class="tag">Angular</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">UI/UX Design</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Dự án 3 -->
-      <div class="project-item">
-        <div class="project-logo-wrapper">
-          <img src="assets/projects/pockie/logo.png" alt="Pockie Logo">
+      <!-- Dự án 3: Pockie -->
+      <div class="project-card-alt" (click)="$event.stopPropagation()" [routerLink]="['/projects']" fragment="pockie"
+        style="cursor: pointer;">
+        <div class="project-overlay">
+          <span>Explore Project</span>
         </div>
-        <h3 class="project-title">Pockie</h3>
-        <p class="project-desc">AI Financial Companion</p>
+        <div class="project-mockup">
+          <img src="assets/projects/pockie/banner1.png" alt="Pockie Banner" class="contain-img">
+        </div>
+        <div class="project-info">
+          <h3 class="project-title-alt">Pockie</h3>
+          <p class="project-desc-alt">An AI Financial Companion designed as a virtual pet to help young adults manage
+            their personal finances effectively through gamified experiences and AI insights.</p>
+          <div class="tech-tags">
+            <span class="tag">Python</span>
+            <span class="tag">AI</span>
+            <span class="tag">Data Analysis</span>
+          </div>
+        </div>
       </div>
     </div>
   </app-content-box>
-  <app-content-box title="Skills" id="skills" appScrollReveal>
-    <p> I focus on developing skills across the AI and software development ecosystem,
-      with a strong interest in building intelligent applications that combine
-      technology, usability, and real-world impact.</p>
-    <br>
-    <ul>
-      <li><strong>Programming & Data Analysis:</strong> Proficient in <strong>Python</strong> and experienced with
-        data analysis libraries such as
-        <strong>NumPy</strong> and
-        <strong>Pandas</strong> for data processing,
-        analysis, and machine learning workflows..
-      </li>
-      <li><strong>Artificial Intelligence:</strong> Experienced in applying
-        <strong>Computer Vision</strong> and
-        <strong>Natural Language Processing (NLP)</strong>
-        to AI projects. Hands-on experience building
-        <strong>Machine Learning</strong> and
-        <strong>Deep Learning</strong> models for practical,
-        real-world applications.
-      </li>
-      <li><strong>Web Development & UI/UX:</strong> Skilled in building
-        user-friendly and visually appealing interfaces using
-        <strong>Angular</strong>, applying clean design
-        principles and focusing on smooth user experience
-        (UX).
-      </li>
-      <li><strong>Soft Skills:</strong>Strong communication and teamwork skills developed through
-        academic projects and cross-functional collaboration.</li>
+  <app-content-box title="Skills" id="skills" appScrollReveal [routerLink]="['/about']" fragment="skills"
+    style="cursor: pointer;">
+    <div class="skills-grid">
+      <!-- Khối 1 -->
+      <div class="skill-col">
+        <div class="skill-header">
+          <span class="skill-category">AI & Data</span>
+          <h3 class="skill-title">Artificial Intelligence</h3>
+        </div>
+        <p class="skill-desc">Proficient in data workflows and intelligent models.</p>
+        <div class="tech-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Computer Vision</span>
+          <span class="tag">NLP</span>
+        </div>
+      </div>
 
-    </ul>
+      <!-- Khối 2 -->
+      <div class="skill-col">
+        <div class="skill-header">
+          <span class="skill-category">Web & UI/UX</span>
+          <h3 class="skill-title">Development & Design</h3>
+        </div>
+        <p class="skill-desc">Skilled in building smooth and responsive interfaces.</p>
+        <div class="tech-tags">
+          <span class="tag">Angular</span>
+          <span class="tag">Vite</span>
+          <span class="tag">UI/UX</span>
+          <span class="tag">Clean Design</span>
+        </div>
+      </div>
+
+      <!-- Khối 3 -->
+      <div class="skill-col">
+        <div class="skill-header">
+          <span class="skill-category">Soft Skills</span>
+          <h3 class="skill-title">Collaboration</h3>
+        </div>
+        <p class="skill-desc">Strong teamwork and communication skills.</p>
+        <div class="tech-tags">
+          <span class="tag">Teamwork</span>
+          <span class="tag">Communication</span>
+          <span class="tag">Cross-functional</span>
+        </div>
+      </div>
+    </div>
   </app-content-box>
 </div>
 
