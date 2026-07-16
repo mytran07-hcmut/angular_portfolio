@@ -95,6 +95,22 @@
   -webkit-user-select: none;
 }
 
+:host-context([data-theme="dark"]) .main-title {
+  background: linear-gradient(120deg, var(--text-color) 0%, #4a90e2 30%, var(--text-color) 50%, #8da9c4 75%, var(--text-color) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:host-context([data-theme="dark"]) .keyword-drag-wrapper {
+  background: linear-gradient(120deg, var(--text-color) 0%, #4a90e2 50%, var(--text-color) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .keyword-drag-wrapper:active {
   cursor: grabbing;
 }
@@ -189,12 +205,17 @@
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-[data-theme="dark"] .search-bar {
-  background: rgba(19, 49, 92, 0.5);
+:host-context([data-theme="dark"]) .search-bar {
+  background: var(--box-bg);
   border-color: rgba(141, 169, 196, 0.25);
   box-shadow:
     0 4px 20px rgba(0, 0, 0, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+:host-context([data-theme="dark"]) .search-bar input::placeholder {
+  color: var(--text-color);
+  opacity: 1;
 }
 
 .search-bar:focus-within {
@@ -234,8 +255,8 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.65);
 }
 
-[data-theme="dark"] .nav-links {
-  background: rgba(19, 49, 92, 0.5);
+:host-context([data-theme="dark"]) .nav-links {
+  background: var(--box-bg);
   border-color: rgba(141, 169, 196, 0.2);
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.3),
@@ -268,7 +289,7 @@
   letter-spacing: 0.02em;
 }
 
-[data-theme="dark"] .nav-links li:hover {
+:host-context([data-theme="dark"]) .nav-links li:hover {
   background-color: rgba(141, 169, 196, 0.1);
 }
 

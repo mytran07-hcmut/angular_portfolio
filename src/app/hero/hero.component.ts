@@ -47,16 +47,16 @@ export class HeroComponent implements OnInit {
   private questionIndex = 0;
   private charIndex = 0;
   private isDeleting = false;
-  
+
   readonly placeholderQuestions = [
-    'Hải My đang theo học ở đâu ?',
-    'Hải My có dự án nào nổi bật ?',
-    'Sở thích của Hải My là gì ?'
+    'Where is Hai My studying ?',
+    'What are some of Hai My\'s key projects ?',
+    'What are Hai My\'s hobbies ?'
   ];
 
   ngOnInit() {
     this.startPlaceholderAnimation();
-    
+
     const basePositions = [
       // Bên trái (từ 30% đến 54%)
       { left: 5, top: 30 },
@@ -161,7 +161,7 @@ export class HeroComponent implements OnInit {
 
   private startPlaceholderAnimation() {
     const currentQ = this.placeholderQuestions[this.questionIndex];
-    
+
     if (this.isDeleting) {
       this.placeholderText.set(currentQ.substring(0, this.charIndex - 1));
       this.charIndex--;
