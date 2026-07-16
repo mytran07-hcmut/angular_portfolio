@@ -1,27 +1,101 @@
 <app-hero></app-hero>
 
 <div class="main-content">
-  <app-content-box title="About me" id="about-me" appScrollReveal>
-    <p>Xin chào, mình là Hải My! Hiện tại mình đang là sinh viên năm nhất chuyên ngành Trí tuệ Nhân tạo tại trường Đại học Bách Khoa TP.HCM (HCMUT).</p>
-    <br>
-    <p>Mình đam mê khám phá thế giới của Computer Vision, Machine Learning và luôn ấp ủ mục tiêu tạo ra những sản phẩm công nghệ mang lại giá trị thực tế cho cộng đồng. Ngoài giờ code, mình thường duy trì lối sống lành mạnh với các buổi tập gym, đánh cầu lông và thỉnh thoảng làm nội dung chia sẻ về năng suất làm việc, quản lý dự án.</p>
-  </app-content-box>
-  <app-content-box title="Experience" id="experience" appScrollReveal>
-    <p>Dù mới là sinh viên năm nhất, mình luôn chủ động tích lũy kinh nghiệm thực tế qua nhiều vai trò khác nhau:</p>
-    <br>
-    <ul>
-      <li><strong>Phát triển dự án CivicTech:</strong> Xây dựng nền tảng website cho phép người dân báo cáo sự cố cộng đồng. Dự án đã thu hút 200 người theo dõi và xử lý thành công hơn 60 báo cáo chỉ trong 2 tuần đầu ra mắt.</li>
-      <li><strong>Hoạt động xã hội & Tình nguyện:</strong> Hợp tác cùng chiến dịch Xuân Tình Nguyện để giải quyết các vấn đề an toàn địa phương, đồng thời trực tiếp tham gia các hoạt động làm sạch môi trường đô thị.</li>
-      <li><strong>Gia sư tự do:</strong> Giảng dạy Tiếng Anh và Khoa học, giúp mình rèn luyện kỹ năng truyền đạt, sự kiên nhẫn và khả năng đánh giá vấn đề nhanh nhạy.</li>
-    </ul>
+  <div class="about-container">
+    <app-content-box title="About me" id="about-me" class="about-text-card" appScrollReveal>
+      <p>
+        Hi, I'm <strong>Hai My</strong>, an Artificial Intelligence student in the collaborative program between the
+        <strong>University of Technology Sydney (UTS)</strong> and
+        <strong>Ho Chi Minh City University of Technology (HCMUT)</strong>.
+      </p>
+
+      <p>
+        I am passionate about exploring the world of
+        <strong>Computer Vision</strong>,
+        <strong>Natural Language Processing (NLP)</strong>,
+        <strong>Machine Learning</strong>, and
+        <strong>Deep Learning</strong>.
+        What excites me most is turning AI research into practical solutions that create meaningful impact and improve
+        people's everyday lives.
+        I enjoy taking on challenging projects, continuously learning new technologies, and collaborating with others to
+        build products that solve real-world problems.
+      </p>
+
+      <p>
+        Beyond coding, I believe that personal growth goes hand in hand with professional development.
+        I maintain an active lifestyle through <strong>gym training</strong> and
+        <strong>badminton</strong>, and I occasionally create content about
+        <strong>productivity</strong>,
+        <strong>project management</strong>, and
+        <strong>continuous self-improvement</strong>.
+        These experiences help me stay disciplined, organized, and curious—qualities I bring to every project I work on.
+      </p>
+    </app-content-box>
+
+    <div class="about-logos-card" appScrollReveal>
+      <img src="assets/logo_bk.png" alt="HCMUT Logo">
+      <img src="assets/logo_uts.png" alt="UTS Logo">
+    </div>
+  </div>
+  <app-content-box title="Projects" id="projects" appScrollReveal>
+    <div class="projects-grid">
+      <!-- Dự án 1 -->
+      <div class="project-item">
+        <div class="project-logo-wrapper">
+          <img src="assets/projects/ocg/logo.jpg" alt="Ô Con Giáp Logo">
+        </div>
+        <h3 class="project-title">Ô Con Giáp</h3>
+        <p class="project-desc">A Modern Board Game</p>
+      </div>
+
+      <!-- Dự án 2 -->
+      <div class="project-item">
+        <div class="project-logo-wrapper">
+          <img src="assets/projects/civictech/logo.jpg" alt="CivicTech Logo">
+        </div>
+        <h3 class="project-title">CivicTech</h3>
+        <p class="project-desc">Community Support Platform</p>
+      </div>
+
+      <!-- Dự án 3 -->
+      <div class="project-item">
+        <div class="project-logo-wrapper">
+          <img src="assets/projects/pockie/logo.png" alt="Pockie Logo">
+        </div>
+        <h3 class="project-title">Pockie</h3>
+        <p class="project-desc">AI Financial Companion</p>
+      </div>
+    </div>
   </app-content-box>
   <app-content-box title="Skills" id="skills" appScrollReveal>
-    <p>Mình tập trung phát triển các kỹ năng xoay quanh hệ sinh thái AI và phát triển phần mềm:</p>
+    <p> I focus on developing skills across the AI and software development ecosystem,
+      with a strong interest in building intelligent applications that combine
+      technology, usability, and real-world impact.</p>
     <br>
     <ul>
-      <li><strong>Ngôn ngữ & Công cụ:</strong> Python, Thư viện phân tích dữ liệu (NumPy, Pandas).</li>
-      <li><strong>Trí tuệ nhân tạo:</strong> Ứng dụng Computer Vision. Tiêu biểu là việc thiết kế và lập trình ứng dụng đếm số lần tập thể dục (squat, curl) tự động bằng MediaPipe.</li>
-      <li><strong>Phát triển Web & UI/UX:</strong> Xây dựng giao diện ứng dụng với Angular, tư duy thiết kế tối giản, tập trung vào trải nghiệm người dùng.</li>
+      <li><strong>Programming & Data Analysis:</strong> Proficient in <strong>Python</strong> and experienced with
+        data analysis libraries such as
+        <strong>NumPy</strong> and
+        <strong>Pandas</strong> for data processing,
+        analysis, and machine learning workflows..
+      </li>
+      <li><strong>Artificial Intelligence:</strong> Experienced in applying
+        <strong>Computer Vision</strong> and
+        <strong>Natural Language Processing (NLP)</strong>
+        to AI projects. Hands-on experience building
+        <strong>Machine Learning</strong> and
+        <strong>Deep Learning</strong> models for practical,
+        real-world applications.
+      </li>
+      <li><strong>Web Development & UI/UX:</strong> Skilled in building
+        user-friendly and visually appealing interfaces using
+        <strong>Angular</strong>, applying clean design
+        principles and focusing on smooth user experience
+        (UX).
+      </li>
+      <li><strong>Soft Skills:</strong>Strong communication and teamwork skills developed through
+        academic projects and cross-functional collaboration.</li>
+
     </ul>
   </app-content-box>
 </div>
