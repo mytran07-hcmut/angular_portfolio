@@ -1,0 +1,302 @@
+.about-page {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--text-color);
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 4px;
+  background-color: var(--text-color);
+  bottom: -10px;
+  left: 25%;
+  border-radius: 2px;
+}
+
+/* 1. Hero */
+.hero-section {
+  min-height: 50vh;
+  justify-content: center;
+}
+
+.hero-content {
+  padding: 3rem;
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  /* Animated gradient text from Home */
+  background: linear-gradient(120deg,
+      var(--text-color) 0%,
+      #9d8189 30%,
+      var(--text-color) 50%,
+      #b5838d 75%,
+      var(--text-color) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+:host-context([data-theme="dark"]) .hero-title {
+  background: linear-gradient(120deg, var(--text-color) 0%, #4a90e2 30%, var(--text-color) 50%, #8da9c4 75%, var(--text-color) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  opacity: 0.8;
+}
+
+/* 2. My Story (Timeline) */
+.timeline {
+  width: 100%;
+  position: relative;
+  text-align: left;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--border-color);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 50%;
+  position: relative;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.timeline-item:nth-child(even) {
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: 50%;
+}
+
+.timeline-year {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--bg-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 2px solid var(--text-color);
+  font-weight: 700;
+  color: var(--text-color);
+  z-index: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-year {
+  right: calc(50% - 35px);
+}
+
+.timeline-item:nth-child(even) .timeline-year {
+  left: calc(50% - 35px);
+}
+
+.timeline-content {
+  width: 85%;
+  padding: 1.5rem;
+}
+
+.timeline-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+/* 3. What I Build */
+.build-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.build-card {
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.build-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* 4. How I Work */
+.work-process {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.process-step {
+  flex: 1;
+  position: relative;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+[data-theme="dark"] .process-step {
+  background: rgba(19, 49, 92, 0.2);
+}
+
+.process-step:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.step-number {
+  font-size: 4rem;
+  font-weight: 900;
+  opacity: 0.1;
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
+
+.process-step h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.process-step p {
+  position: relative;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+/* 5. Current Focus */
+.focus-content {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 800px;
+  padding: 2.5rem;
+}
+
+/* 6. Beyond Coding */
+.beyond-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  width: 100%;
+}
+
+.beyond-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.beyond-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s;
+}
+
+.beyond-card:hover .beyond-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.beyond-card h4 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-page {
+    gap: 6rem;
+    padding: 2rem 0;
+  }
+  
+  .timeline::before {
+    left: 20px;
+  }
+  
+  .timeline-item, .timeline-item:nth-child(even) {
+    justify-content: flex-start;
+    padding-left: 60px;
+    padding-right: 0;
+  }
+  
+  .timeline-item:nth-child(odd) .timeline-year,
+  .timeline-item:nth-child(even) .timeline-year {
+    left: 0;
+    transform: none;
+    top: 0;
+  }
+
+  .timeline-content {
+    width: 100%;
+  }
+
+  .work-process {
+    flex-direction: column;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+  }
+}
