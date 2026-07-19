@@ -1,1 +1,143 @@
-<p>projects works!</p>
+<div class="projects-page">
+
+  <!-- 1. Hero Section -->
+  <section class="projects-section hero-section scroll-reveal" #revealSection>
+    <div class="hero-content">
+      <h2 class="hero-label">PROJECTS</h2>
+      <h1 class="hero-title">Building AI products that solve real-world problems.</h1>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">8</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">3</span>
+          <span class="stat-label">AI Products</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">1</span>
+          <span class="stat-label">Research</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-mockups">
+      <div class="mockup-float" *ngFor="let mockup of featuredProject.mockupUrls.slice(0,3); let i = index"
+        [ngStyle]="{'animation-delay': i * 1.5 + 's'}">
+        <img [src]="mockup" alt="Mockup">
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Featured Projects -->
+  <section class="projects-section featured-section scroll-reveal" #revealSection>
+    <div class="featured-card card-box content-box">
+      <div class="card-header">
+        <div class="tags">
+          <span class="tag" *ngFor="let tag of featuredProject.tags" [class.featured]="tag === 'Featured'">{{ tag
+            }}</span>
+        </div>
+        <h2 class="project-title">{{ featuredProject.title }}</h2>
+        <p class="project-description">{{ featuredProject.shortDescription }}</p>
+      </div>
+
+      <div class="card-visuals">
+        <div class="mockup-container">
+          <img *ngFor="let mockup of featuredProject.mockupUrls" [src]="mockup" alt="Project Mockup" class="mockup-img">
+        </div>
+      </div>
+
+      <div class="card-details">
+        <div class="details-column">
+          <h3>Problem</h3>
+          <h4>{{ featuredProject.problem }}</h4>
+          <p>{{ featuredProject.problemDetail }}</p>
+          <div class="features-list">
+            <h5> AI</h5>
+            <ul>
+              <li *ngFor="let feature of featuredProject.aiFeatures">{{ feature }}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="details-column">
+          <h3>Impact</h3>
+          <h4>{{ featuredProject.impact }}</h4>
+          <p>{{ featuredProject.impactDetail }}</p>
+          <div class="features-list">
+            <h5>Product</h5>
+            <ul>
+              <li *ngFor="let feature of featuredProject.productFeatures">{{ feature }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <div class="meta-info">
+          <div class="meta-item">
+            <span class="meta-label">Role</span>
+            <span class="meta-value">{{ featuredProject.role }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Stack</span>
+            <span class="meta-value">{{ featuredProject.stack?.join(' · ') }}</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Timeline</span>
+            <span class="meta-value">{{ featuredProject.timeline }}</span>
+          </div>
+        </div>
+        <div class="actions">
+          <a [href]="featuredProject.demoUrl" class="btn btn-outline" target="_blank">
+            <span class="icon">↗</span> Live Demo
+          </a>
+          <a [href]="featuredProject.caseStudyUrl" class="btn btn-primary">
+            <span class="icon">→</span> Case Study
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Project Explorer -->
+  <section class="projects-section explorer-section scroll-reveal" #revealSection>
+    <h2 class="section-title">Project Explorer</h2>
+    <div class="explorer-grid">
+      <div class="explorer-card card-box content-box" *ngFor="let project of explorerProjects">
+        <div class="explorer-img-wrapper">
+          <img [src]="project.mockupUrls[0]" alt="{{ project.title }}">
+        </div>
+        <div class="explorer-content">
+          <div class="tags">
+            <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
+          </div>
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.shortDescription }}</p>
+          <div class="meta-info-small">
+            <span class="meta-value">{{ project.role }}</span>
+            <span class="separator">·</span>
+            <span class="meta-value">{{ project.stack?.slice(0,2)?.join(', ') }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Case Studies -->
+  <section class="projects-section case-studies-section scroll-reveal" #revealSection>
+    <h2 class="section-title">Case Studies</h2>
+    <div class="content-box case-studies-box">
+      <p>Coming soon. In-depth analysis of architectural decisions, engineering challenges, and product learnings.</p>
+    </div>
+  </section>
+
+  <!-- 5. Other Experiments -->
+  <section class="projects-section experiments-section scroll-reveal" #revealSection>
+    <h2 class="section-title">Other Experiments</h2>
+    <div class="content-box experiments-box">
+      <p>A collection of mini-projects, research scripts, and fun UI components built along the way.</p>
+    </div>
+  </section>
+
+
+</div>
