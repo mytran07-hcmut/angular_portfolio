@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ElementRef, ViewChildren, QueryList } from '@angular/core';
-import { FEATURED_PROJECT, EXPLORER_PROJECTS, FeaturedProject, Project } from './projects.data';
+import { FEATURED_PROJECT, EXPLORER_PROJECTS, RESEARCH_PROJECTS, FeaturedProject, Project, ResearchProject } from './projects.data';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 export class Projects implements AfterViewInit {
   featuredProject: FeaturedProject = FEATURED_PROJECT;
   explorerProjects: Project[] = EXPLORER_PROJECTS;
+  researchProjects: ResearchProject[] = RESEARCH_PROJECTS;
 
   @ViewChildren('revealSection') sections!: QueryList<ElementRef>;
 

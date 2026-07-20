@@ -15,7 +15,7 @@
           <span class="stat-label">AI Products</span>
         </div>
         <div class="stat-item">
-          <span class="stat-number">1</span>
+          <span class="stat-number">2</span>
           <span class="stat-label">Research</span>
         </div>
       </div>
@@ -88,7 +88,7 @@
           </div>
         </div>
         <div class="actions">
-          <a [href]="featuredProject.demoUrl" class="btn btn-outline" target="_blank">
+          <a href="https://pockie.vercel.app/" class="btn btn-outline" target="_blank">
             <span class="icon">↗</span> Live Demo
           </a>
           <a [href]="featuredProject.caseStudyUrl" class="btn btn-primary">
@@ -123,13 +123,22 @@
     </div>
   </section>
 
-  <!-- 4. Case Studies -->
-  <section class="projects-section case-studies-section scroll-reveal" #revealSection>
-    <h2 class="section-title">Case Studies</h2>
-    <div class="content-box case-studies-box">
-      <p>Coming soon. In-depth analysis of architectural decisions, engineering challenges, and product learnings.</p>
+  <!-- 4. Research -->
+  <section class="projects-section research-section scroll-reveal" #revealSection>
+    <h2 class="section-title">Research</h2>
+    <div class="research-grid">
+      <div class="research-card card-box content-box" *ngFor="let research of researchProjects">
+        <div class="research-header">
+          <span class="research-field">{{ research.field }}</span>
+          <span class="research-status" [class.completed]="research.status === 'Completed'">{{ research.status }}</span>
+        </div>
+        <h3 class="research-title">{{ research.title }}</h3>
+        <p class="research-description">{{ research.description }}</p>
+        <a *ngIf="research.link" [href]="research.link" class="research-link" target="_blank">Read more ↗</a>
+      </div>
     </div>
   </section>
+
 
   <!-- 5. Other Experiments -->
   <section class="projects-section experiments-section scroll-reveal" #revealSection>
