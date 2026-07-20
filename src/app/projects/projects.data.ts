@@ -23,17 +23,17 @@ export interface FeaturedProject extends Project {
 export const FEATURED_PROJECT: FeaturedProject = {
   id: 'pockie',
   title: 'Pockie — AI Gamified Finance Assistant',
-  shortDescription: 'Biến việc quản lý chi tiêu thành một trải nghiệm có động lực thông qua AI pet, OCR hóa đơn và gamification.',
+  shortDescription: 'Transform expense tracking into a motivating experience through AI pets, receipt OCR, and gamification.',
   tags: ['Featured', 'AI + Product', 'Hackathon', 'Production-minded'],
   mockupUrls: [
     'https://placehold.co/300x600/0b1c0d/ffffff?text=Pockie+Mockup+1',
     'https://placehold.co/300x600/103a16/ffffff?text=Pockie+Mockup+2',
     'https://placehold.co/300x600/0b1c0d/ffffff?text=Pockie+Mockup+3'
   ],
-  problem: 'Gen Z bỏ cuộc sau vài ngày',
-  problemDetail: 'Hầu hết ứng dụng tài chính có retention thấp vì thao tác nhập liệu quá phiền.',
-  impact: '3s để lưu một hóa đơn',
-  impactDetail: 'Thiết kế hành động tối thiểu hằng ngày để tạo thói quen thay vì ép người dùng ghi chép.',
+  problem: 'Gen Z gives up after a few days',
+  problemDetail: 'Most finance apps have low retention because manual data entry is too tedious.',
+  impact: '3 seconds to save a receipt',
+  impactDetail: 'Designed for minimal daily actions to build habits rather than forcing users to log everything.',
   aiFeatures: [
     'OCR + receipt parsing',
     'NLP categorization',
@@ -46,9 +46,9 @@ export const FEATURED_PROJECT: FeaturedProject = {
     'Voucher marketplace',
     'Gen Z-first UX'
   ],
-  role: 'Team Lead',
-  stack: ['Angular', 'Python', 'OpenAI'],
-  timeline: '6 tuần',
+  role: 'Team Leader',
+  stack: ['Flutter', 'Node.js', 'MinIO', 'OpenAI', 'ViteJS'],
+  timeline: '6 weeks',
   demoUrl: '#',
   caseStudyUrl: '#'
 };
@@ -57,25 +57,48 @@ export const EXPLORER_PROJECTS: Project[] = [
   {
     id: 'civictech',
     title: 'CivicTech — Civic Engagement Platform',
-    shortDescription: 'Nền tảng giúp kết nối người dân với chính quyền địa phương qua AI chatbot và phân tích dữ liệu cộng đồng.',
+    shortDescription: 'A platform connecting citizens with local government through an AI chatbot and community data analysis.',
     tags: ['AI + Civic', 'Web App'],
     mockupUrls: ['assets/projects/civictech/banner.jpg'],
     role: 'Fullstack Dev',
     stack: ['Angular', 'Node.js', 'LLMs'],
-    timeline: '3 tháng',
+    timeline: '3 months',
     demoUrl: '#',
     caseStudyUrl: '#'
   },
   {
     id: 'ocg',
     title: 'OCG — Optimization & Consulting Group',
-    shortDescription: 'Hệ thống AI tự động hóa quy trình phân tích và tối ưu hóa hoạt động doanh nghiệp.',
+    shortDescription: 'An AI system that automates the process of analyzing and optimizing business operations.',
     tags: ['B2B', 'Automation', 'Data Analytics'],
     mockupUrls: ['assets/projects/ocg/banner.jpg'],
     role: 'AI Engineer',
     stack: ['Python', 'FastAPI', 'Pandas'],
-    timeline: '4 tháng',
+    timeline: '4 months',
     demoUrl: '#',
     caseStudyUrl: '#'
+  }
+];
+
+export interface ResearchProject {
+  title: string;
+  field: string;
+  status: string;
+  description: string;
+  link?: string;
+}
+
+export const RESEARCH_PROJECTS: ResearchProject[] = [
+  {
+    title: 'Quantum-Enhanced Artifact Reduction in Mobile ECG',
+    field: 'Quantum AI',
+    status: 'In Progress',
+    description: 'Research on leveraging Quantum Machine Learning algorithms to mitigate motion artifacts and enhance real-time ECG signal quality in wearable healthcare devices.',
+  },
+  {
+    title: 'Vietnamese Legal Document Search Engine Using Semantic Search with Embeddings and FAISS',
+    field: 'NLP',
+    status: 'Completed',
+    description: 'Building an AI-powered legal search system that goes beyond keyword matching to retrieve relevant Vietnamese laws and regulations based on semantic meaning.',
   }
 ];
