@@ -28,7 +28,10 @@ export const FEATURED_PROJECT: FeaturedProject = {
   mockupUrls: [
     'https://placehold.co/300x600/0b1c0d/ffffff?text=Pockie+Mockup+1',
     'https://placehold.co/300x600/103a16/ffffff?text=Pockie+Mockup+2',
-    'https://placehold.co/300x600/0b1c0d/ffffff?text=Pockie+Mockup+3'
+    'https://placehold.co/300x600/0b1c0d/ffffff?text=Pockie+Mockup+3',
+    'https://placehold.co/300x600/154a20/ffffff?text=Pockie+Mockup+4',
+    'https://placehold.co/300x600/0b1c0d/ffffff?text=Pockie+Mockup+5',
+    'https://placehold.co/300x600/103a16/ffffff?text=Pockie+Mockup+6'
   ],
   problem: 'Gen Z gives up after a few days',
   problemDetail: 'Most finance apps have low retention because manual data entry is too tedious.',

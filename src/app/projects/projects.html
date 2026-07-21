@@ -40,9 +40,12 @@
         <p class="project-description">{{ featuredProject.shortDescription }}</p>
       </div>
 
-      <div class="card-visuals">
-        <div class="mockup-container">
-          <img *ngFor="let mockup of featuredProject.mockupUrls" [src]="mockup" alt="Project Mockup" class="mockup-img">
+      <div class="card-visuals carousel-wrapper">
+        <div class="carousel-container">
+          <div class="phone-frame" *ngFor="let mockup of featuredProject.mockupUrls; let i = index" [ngStyle]="{'transform': 'rotateY(' + (i * 60) + 'deg) translateZ(190px)'}">
+            <div class="dynamic-island"></div>
+            <img [src]="mockup" alt="Project Mockup">
+          </div>
         </div>
       </div>
 
