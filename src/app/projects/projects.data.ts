@@ -26,12 +26,12 @@ export const FEATURED_PROJECT: FeaturedProject = {
   shortDescription: 'Transform expense tracking into a motivating experience through AI pets, receipt OCR, and gamification.',
   tags: ['Featured', 'AI + Product', 'Hackathon', 'Production-minded'],
   mockupUrls: [
-    'https://placehold.co/300x600/0b1c0d/ffffff?text=Pockie+Mockup+1',
-    'https://placehold.co/300x600/103a16/ffffff?text=Pockie+Mockup+2',
-    'https://placehold.co/300x600/0b1c0d/ffffff?text=Pockie+Mockup+3',
-    'https://placehold.co/300x600/154a20/ffffff?text=Pockie+Mockup+4',
-    'https://placehold.co/300x600/0b1c0d/ffffff?text=Pockie+Mockup+5',
-    'https://placehold.co/300x600/103a16/ffffff?text=Pockie+Mockup+6'
+    'assets/projects/pockie/mockup/1.png',
+    'assets/projects/pockie/mockup/2.png',
+    'assets/projects/pockie/mockup/3.png',
+    'assets/projects/pockie/mockup/4.png',
+    'assets/projects/pockie/mockup/5.png',
+    'assets/projects/pockie/mockup/6.png'
   ],
   problem: 'Gen Z gives up after a few days',
   problemDetail: 'Most finance apps have low retention because manual data entry is too tedious.',
