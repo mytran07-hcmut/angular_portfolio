@@ -1,8 +1,7 @@
-import { Component, signal, OnInit } from '@angular/core';
-import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
+import { Component, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { NavBarComponent } from './nav-bar/nav-bar';
 import { FooterComponent } from './footer/footer.component';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -10,17 +9,6 @@ import { filter } from 'rxjs/operators';
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
-export class App implements OnInit {
+export class App {
   protected readonly title = signal('portfolio-app');
-  isContactPage = signal(false);
-
-  constructor(private router: Router) {}
-
-  ngOnInit() {
-    this.router.events.pipe(
-      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
-      this.isContactPage.set(event.urlAfterRedirects.includes('/contact'));
-    });
-  }
 }
